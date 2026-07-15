@@ -8,25 +8,17 @@ import BackgroundBlobs from "../Components/BackgroundBlobs";
 import TechStack from "../Components/TechStack";
 
 const stats = [
-  { value: "8+", label: "Projects Built" },
-  { value: "5+", label: "AI Solutions" },
-  { value: "2+", label: "Years Experience" },
+  { value: "8+",   label: "Projects Built" },
+  { value: "4+",   label: "AI Solutions" },
+  { value: "2+",   label: "Years Experience" },
   { value: "100%", label: "Passion Driven" },
 ];
 
-const roles = [
-  "Software Developer",
-  "Generative AI Engineer",
-  "Automation Engineer",
-  "Problem Solver",
-  "Creative Thinker",
-];
-
 const socialLinks = [
-  { icon: Github, href: "https://github.com/EchannyE", label: "GitHub" },
-  { icon: Linkedin, href: "https://www.linkedin.com/in/echannyidagu", label: "LinkedIn" },
-  { icon: Facebook, href: "https://www.facebook.com/share/1C9vDUJ5qP/", label: "Facebook" },
-  { icon: Instagram, href: "https://www.instagram.com/echannyonda", label: "Instagram" },
+  { icon: Github,    href: "https://github.com/EchannyE",                 label: "GitHub" },
+  { icon: Linkedin,  href: "http://www.linkedin.com/in/echannyidagu",        label: "LinkedIn" },
+  { icon: Facebook,  href: "https://www.facebook.com/share/1C9vDUJ5qP/",    label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/echannyonda",          label: "Instagram" },
 ];
 
 const Home = () => {
@@ -70,38 +62,39 @@ const Home = () => {
 
             {/* Typewriter role */}
             <div className="flex items-center gap-3 min-h-[40px]">
-              <span className="w-8 h-0.5 bg-pink-500 rounded-full flex-shrink-0" aria-hidden="true" />
-              {/* The animation repeats forever and re-announces on every change,
-                  which is disruptive for screen readers — hide it from the
-                  accessibility tree and provide a single static equivalent instead. */}
+              <span className="w-8 h-0.5 bg-pink-500 rounded-full flex-shrink-0" />
               <TypeAnimation
-                aria-hidden="true"
                 className="text-xl sm:text-2xl font-semibold text-gray-700 dark:text-gray-200"
-                sequence={roles.flatMap((role) => [role, 1800])}
+                sequence={[
+                  "Software Developer", 1800,
+                  "Generative AI Engineer", 1800,
+                  "Automation Engineer", 1800,
+                  "Problem Solver", 1800,
+                  "Creative Thinker", 1800,
+                ]}
                 speed={55}
                 repeat={Infinity}
               />
-              <span className="sr-only">{roles.join(", ")}</span>
             </div>
 
             {/* Structured Paragraph */}
             <p className="text-base sm:text-lg leading-relaxed text-gray-600 dark:text-gray-300 max-w-lg">
-              I'm passionate about turning ideas into powerful digital solutions.
-              I specialize in building modern, scalable, and user-friendly applications,
+              I'm passionate about turning ideas into powerful digital solutions. 
+              I specialize in building modern, scalable, and user-friendly applications, 
               blending clean code with creativity to deliver real impact.
             </p>
 
             {/* CTAs */}
             <div className="flex flex-wrap gap-4 justify-center md:justify-start w-full">
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button as={Link} to="/projects" variant="primary" size="lg" className="shadow-md">
-                  View My Work
-                </Button>
+                <Link to="/projects">
+                  <Button title="View My Work" variant="primary" size="lg" className="shadow-md" />
+                </Link>
               </motion.div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
-                <Button as={Link} to="/contact" variant="outline" size="lg" className="shadow-md">
-                  Get In Touch
-                </Button>
+                <Link to="/contact">
+                  <Button title="Get In Touch" variant="outline" size="lg" className="shadow-md" />
+                </Link>
               </motion.div>
             </div>
 
@@ -119,7 +112,7 @@ const Home = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-pink-500 hover:text-pink-500 dark:hover:text-pink-400 dark:hover:border-pink-400 shadow-sm transition-all duration-200 hover:scale-110 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pink-400 focus-visible:ring-offset-2 dark:focus-visible:ring-offset-gray-900"
+                  className="w-10 h-10 flex items-center justify-center rounded-full bg-white dark:bg-gray-800 border-2 border-gray-100 dark:border-gray-700 text-gray-500 dark:text-gray-400 hover:border-pink-500 hover:text-pink-500 dark:hover:text-pink-400 dark:hover:border-pink-400 shadow-sm transition-all duration-200 hover:scale-110"
                 >
                   <Icon size={18} />
                 </a>

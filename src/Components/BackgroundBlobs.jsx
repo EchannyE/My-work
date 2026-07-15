@@ -1,51 +1,8 @@
-import React from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
-
-const blobs = [
-  {
-    className: 'top-0 left-0 bg-gradient-to-br from-pink-400 to-pink-200 dark:from-pink-600 dark:to-purple-900',
-    delay: 0,
-  },
-  {
-    className: 'top-0 right-0 bg-gradient-to-br from-purple-400 to-pink-200 dark:from-purple-700 dark:to-pink-900',
-    delay: 2,
-  },
-  {
-    className: 'bottom-0 left-1/4 bg-gradient-to-br from-pink-300 to-purple-300 dark:from-pink-800 dark:to-purple-800',
-    delay: 4,
-  },
-];
-
-const BackgroundBlobs = () => {
-  const prefersReducedMotion = useReducedMotion();
-
-  return (
-    // Purely decorative: hidden from screen readers and never intercepts clicks
-    <div className="pointer-events-none absolute inset-0 z-0 overflow-hidden" aria-hidden="true">
-      {blobs.map((blob, i) => (
-        <motion.div
-          key={i}
-          className={`absolute h-64 w-64 rounded-full opacity-30 blur-xl mix-blend-multiply dark:opacity-20 dark:mix-blend-screen ${blob.className}`}
-          animate={
-            prefersReducedMotion
-              ? undefined
-              : {
-                  x: [0, 30, -20, 0],
-                  y: [0, -30, 20, 0],
-                  scale: [1, 1.1, 0.95, 1],
-                }
-          }
-          transition={{
-            duration: 7,
-            repeat: Infinity,
-            repeatType: 'loop',
-            ease: 'easeInOut',
-            delay: blob.delay,
-          }}
-        />
-      ))}
-    </div>
-  );
-};
-
+const BackgroundBlobs = () => (
+  <div className="absolute inset-0 z-0">
+    <div className="absolute top-0 left-0 w-64 h-64 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
+    <div className="absolute top-0 right-0 w-64 h-64 bg-green-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
+    <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+  </div>
+);
 export default BackgroundBlobs;
